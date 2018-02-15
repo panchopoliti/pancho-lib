@@ -1,4 +1,4 @@
-(function () {
+(function (root) {
   function toggleElement() {
     const allToggleTriggers = document.querySelectorAll('[data-toggle]');
 
@@ -17,4 +17,7 @@
     }
   }
   toggleElement();
-}());
+  root.toggle = {
+    toggleElement,
+  };
+}(window));
