@@ -1,4 +1,4 @@
-(function() {
+(function(root) {
 
 
 /**
@@ -196,8 +196,8 @@ root.arraysLib = {
 	each,
 	map,
 	tail,
-	head,
+	head
 }
 
-}());
+}(window));
 
