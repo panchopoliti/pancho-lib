@@ -11,12 +11,13 @@
 
       document.body.addEventListener('click', (event) => {
 
-      if (event.target !== trigger) {
-        target.classList.add('hide');
-      }
+        if (event.target !== trigger) {
+          target.classList.add('hide');
+        }
 
       });
     }
+  }
   toggleElement();
 
   root.toggle = {
