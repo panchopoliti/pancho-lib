@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+const pj = require('./package.json');
+const fs = require('fs');
+const { exec } = require('child_process');
+
+const versionNumber = pj.version;
+const [mayor, minor, build] = versionNumber.split('.');
+
+const newBuildNumber = parseInt(build) + 1;
+
+pj.version = `${mayor}.${minor}.${newBuildNumber}`;
+
+var json = JSON.stringify(pj, null, 4);
+
+fs.writeFile('package.json', json, 'utf8', () => { console.log ('success'); });
+
+
+exec(`git tag ${pj.version} && git push origin ${pj.version}`, (err, stdout, stderr) => {
+  if (err) {
+    // node couldn't execute the command
+    return;
+  }
+
+  // the *entire* stdout and stderr (buffered)
+  console.log(`stdout: ${stdout}`);
+  console.log(`stderr: ${stderr}`);
+});

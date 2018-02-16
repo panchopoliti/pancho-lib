@@ -1,9 +1,8 @@
 (function (root) {
 
-  function post(fileLocation, JSONData, successCb, errorCb, event) {
-    event.preventDefault();
+  function post(fileLocation, JSONData, successCb, errorCb) {
     const request = new XMLHttpRequest();
-    request.onreadystatechange = function () {
+    request.onreadystatechange = function (event) {
       if (request.readyState === 4) {
         if (request.status === 200) {
           successCb();

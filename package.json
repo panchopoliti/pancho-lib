@@ -1,23 +1,23 @@
 {
-  "name": "pancho-lib",
-  "version": "1.0.0",
-  "description": "Utility libraries",
-  "main": "index.js",
-  "scripts": {
-    "docs": "jsdoc -r libs -d docs",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/panchopoliti/pancho-lib.git"
-  },
-  "author": "Pancho Politi",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/panchopoliti/pancho-lib/issues"
-  },
-  "homepage": "https://github.com/panchopoliti/pancho-lib#readme",
-  "devDependencies": {
-    "jsdoc": "^3.5.5"
-  }
+    "name": "pancho-lib",
+    "version": "1.0.5",
+    "description": "Utility libraries",
+    "main": "index.js",
+    "scripts": {
+        "docs": "jsdoc -r libs -d docs",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/panchopoliti/pancho-lib.git"
+    },
+    "author": "Pancho Politi",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/panchopoliti/pancho-lib/issues"
+    },
+    "homepage": "https://github.com/panchopoliti/pancho-lib#readme",
+    "devDependencies": {
+        "jsdoc": "^3.5.5"
+    }
 }
