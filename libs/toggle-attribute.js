@@ -6,30 +6,43 @@
     });
   }
 
-  function clickOutside(trigger, target) {
+  function clickOutside(trigger, targetSelector, target) {
     document.body.addEventListener('click', (event) => {
-      if (event.target !== trigger) {
+      const isChildOfDataTarget = event.target.closest(targetSelector);
+
+      if (event.target !== trigger && !isChildOfDataTarget) {
         target.classList.add('hide');
       }
+
     });
   }
 
-  function genericToggle() {
-    const allToggleTriggers = document.querySelectorAll('[data-toggle]');
+  function executeToggle(trigger, targetSelector, toggleValue) {
+    const target = document.querySelector(targetSelector);
 
-    for (const trigger of allToggleTriggers) {
-      const toggleValue = trigger.dataset.toggle;
-      const targetString = trigger.getAttribute('data-target');
-      const target = document.getElementById(targetString);
-
-      if (toggleValue === 'onlyToggle') {
+    switch (toggleValue) {
+      case 'onlyToggle':
         onlyToggle(trigger, target);
-      } else if (toggleValue === 'clickOutside') {
+        break;
+      case 'clickOutside':
         onlyToggle(trigger, target);
-        clickOutside(trigger, target);
-      } else {
+        clickOutside(trigger, targetSelector, target);
+        break;
+      default:
         throw new Error(`${toggleValue} is not an available data-toggle value`);
+    }
+  }
+
+  function genericToggle() {
+    const allToggleElem = document.querySelectorAll('[data-toggle]');
+    for (const elem of allToggleElem) {
+      const { target, toggle } = elem.dataset;
+
+      if (!target) {
+        throw new Error('not data-target provided');
       }
+
+      executeToggle(elem, target, toggle);
     }
   }
 
@@ -37,3 +50,4 @@
     genericToggle,
   };
 }(window));
+
