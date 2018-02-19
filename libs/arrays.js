@@ -75,6 +75,11 @@ function indexOf(arr, elem) {
 	return -1;
 }
 
+function find(arr, elem) {
+	const index = indexOf(arr, elem);
+	return index === -1 ? undefined : arr[index];
+}
+
 function contains(arr, elem) {
 	return (indexOf(arr, elem) >= 0);
 }
@@ -196,7 +201,8 @@ root.arraysLib = {
 	each,
 	map,
 	tail,
-	head
+	head,
+	find,
 }
 
 }(window));
