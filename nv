@@ -24,7 +24,6 @@ const commands = [
 ];
 
 function executeCommands() {
-  console.log(commands.join(' && '));
   exec(commands.join(' && '), (err, stdout, stderr) => {
     console.log('hello');
     if (err) {
