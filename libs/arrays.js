@@ -168,24 +168,15 @@ function tail(arr) {
 * @param {Number} init - The accumulator initial value
 * @return {Any} A single value
 */
-// function reduceArray(arr, fn, init = 0){
-// 	if (typeof arr !== 'array') {
-// 		return arr;
-// 	}
-//
-// 	if (typeof fn !== 'function') {
-// 		return arr;
-// 	}
-//
-// 	if (typeof init !== 'number') {
-// 		return arr;
-// 	}
-// 	for (let elem of arr){
-// 		let result = fn(acum, elem);
-// 	}
-// 	return result;
-// }
-
+function reduceArray(arr, fn, init) {
+  let acum = init;
+  for (let i = 0; i < arr.length; i++) {
+    acum = fn(acum, arr[i]);
+  }
+  return acum;
+}
+  const users = [{u: 'juan', age: 20}, {u: 'pepe', age: 30}, {u: 'carlos', age: 50}]
+console.log(reduceArray(users, (acum, elem) => { return acum + elem.age; }, 0));
 root.arraysLib = {
 	concat,
 	deleteDuplicates,
@@ -203,6 +194,7 @@ root.arraysLib = {
 	tail,
 	head,
 	find,
+  reduceArray,
 }
 
 }(window));
