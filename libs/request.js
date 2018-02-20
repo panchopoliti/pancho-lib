@@ -34,6 +34,23 @@
       request.send();
   }
 
+  function put(fileLocation, JSONData, successCb, errorCb) {
+    const request = new XMLHttpRequest();
+    request.onreadystatechange = function (event) {
+      if (request.readyState === 4) {
+        if (request.status === 200) {
+          successCb();
+        } else {
+          errorCb();
+        }
+      }
+    };
+    const formattedJsonData = JSON.stringify(JSONData);
+    request.open('PUT', fileLocation);
+    request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    request.send(formattedJsonData);
+  }
+
   function get(fileLocation, successCb, errorCb) {
     const request = new XMLHttpRequest();
     request.onreadystatechange = function () {
@@ -53,6 +70,7 @@
 
   root.serverFunctions = {
     post,
+    put,
     get,
     del,
   };
