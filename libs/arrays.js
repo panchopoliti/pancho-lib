@@ -175,8 +175,7 @@ function reduceArray(arr, fn, init) {
   }
   return acum;
 }
-  const users = [{u: 'juan', age: 20}, {u: 'pepe', age: 30}, {u: 'carlos', age: 50}]
-console.log(reduceArray(users, (acum, elem) => { return acum + elem.age; }, 0));
+
 root.arraysLib = {
 	concat,
 	deleteDuplicates,
