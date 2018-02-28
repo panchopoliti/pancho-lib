@@ -1,5 +1,5 @@
 (function(root) {
-	
+
 	let concurrentTimeouts = {};
 
 	/** it's not concurrent */
@@ -12,7 +12,17 @@
 		concurrentTimeouts[fn] = setTimeout(fn, millis);
 	}
 
+  function getRandomInt(max) {
+    const random = Math.random();
+    if (random === 1) {
+      return max;
+    } else {
+      return Math.floor(random * (max+1));
+    }
+  }
+
 	root.MyFunctions = {
-		debounce
+		debounce,
+    getRandomInt,
 	};
 })(this);
