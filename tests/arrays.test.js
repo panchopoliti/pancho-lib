@@ -111,6 +111,7 @@
   });
 
   describe("reduceArray", function() {
+
     it("should return any single value", function() {
       const myArr = [3, 4, 5, 6];
       assert(a.reduceArray(myArr, (acum, elem) => acum + elem, 0) === 18, "the sum is different");
@@ -119,6 +120,26 @@
     it("should return any single value", function() {
       const myArr = [3, 4, 5, 6];
       assert(a.reduceArray(myArr, (acum, elem) => acum + elem, 0) === 18, "the sum is different");
+    });
+  });
+
+  describe("shuffle", function() {
+
+    it("should return a new shuffled array", function() {
+      const myArr = [1, 2, 3, 4, 5, 6];
+      assert(a.shuffle(myArr).length === myArr.length, "The length of the array is different");
+    });
+
+    it("should return a new shuffled array", function() {
+      const myArr = [3, 4, 5, 6];
+      const resultArr = a.shuffle(myArr);
+      let cond = true;
+      for (let i = 0; i < resultArr.length; i++) {
+        if(!a.contains(resultArr, myArr[i])) {
+          cond = false
+        }
+      }
+      assert((cond), 'the function is not working')
     });
   });
 

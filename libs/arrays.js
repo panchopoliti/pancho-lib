@@ -176,6 +176,23 @@ function reduceArray(arr, fn, init) {
   return acum;
 }
 
+  /**
+   * Reorder every element in the array in a random order
+   * @param {Array} arr - the array to shuffle
+   * @return {Array} A new array with every element shuffled
+   */
+
+function shuffle(arr) {
+    const arrResult = [];
+    while (arrResult.length !== arr.length) {
+      const nextIndex = MyFunctions.getRandomInt(arr.length - 1);
+      if(!arrResult.includes(nextIndex)) {
+        arrResult.push(nextIndex);
+      }
+    }
+    return map( arrResult, (index) => arr[index]);
+}
+
 root.arraysLib = {
 	concat,
 	deleteDuplicates,
@@ -194,6 +211,7 @@ root.arraysLib = {
 	head,
 	find,
   reduceArray,
+	shuffle,
 }
 
 }(window));
