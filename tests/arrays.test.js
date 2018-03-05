@@ -143,5 +143,40 @@
     });
   });
 
+  describe("sort", function() {
+
+    it("should return the same array in a new order. Trying the fn without cb parameter", function() {
+      const myArr = [1, 4, 3, 2, 6, 5];
+      assert(equalArrays(a.sort(myArr), [1, 2, 3, 4, 5, 6]), "the no callback parameter is not working");
+    });
+
+    it("should return the same array in a new order. Trying with max to min param", function() {
+      const myArr = [1, 4, 3, 2, 6, 5];
+      assert(equalArrays(a.sort(myArr, (a, b) => {
+        if (a < b) {
+          return 1;
+        }
+      }), [6, 5, 4, 3, 2, 1]), "the callback parameter is not working");
+    });
+
+    it("should return the same array in a new order. Trying with max to min param with several numbers in arr", function() {
+      const myArr = [18, 20, 6, 2, 3, 90, 8, 72, 3, 54, 21, 29, 3, 1];
+      assert(equalArrays(a.sort(myArr, (a, b) => {
+        if (a < b) {
+          return 1;
+        }
+      }), [90, 72, 54, 29, 21, 20, 18, 8, 6, 3, 3, 3, 2, 1]), "the callback parameter is not working");
+    });
+
+    it("should return the same array in a new order. Trying min to max param with strings in arr", function() {
+      const myArr = ['perro', 'gato', 'cebra', 'león', 'gacela', 'antilope', 'pinguino'];
+      assert(equalArrays(a.sort(myArr, (a, b) => {
+        if (a > b) {
+          return 1;
+        }
+      }), ['antilope', 'cebra', 'gacela', 'gato', 'león', 'perro', 'pinguino']), "the callback parameter is not working");
+    });
+  });
+
 
 }(window));

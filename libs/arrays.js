@@ -176,11 +176,11 @@ function reduceArray(arr, fn, init) {
   return acum;
 }
 
-  /**
-   * Reorder every element in the array in a random order
-   * @param {Array} arr - the array to shuffle
-   * @return {Array} A new array with every element shuffled
-   */
+/**
+ * Reorder every element in the array in a random order
+ * @param {Array} arr - the array to shuffle
+ * @return {Array} A new array with every element shuffled
+ */
 
 function shuffle(arr) {
     const arrResult = [];
@@ -191,6 +191,33 @@ function shuffle(arr) {
       }
     }
     return map( arrResult, (index) => arr[index]);
+}
+
+/**
+ * Reorder every element according to the condition passed in the callback
+ * @param {Array} arr - the array to reorder
+ * @param {Function} cb - the function which will set the condition of order
+ * @return {Array} The same array reordered. The sort occur in place.
+ */
+
+function sort(arr, cb = null) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - 1; j++) {
+      const a = arr[j];
+      const b = arr[j + 1];
+
+      if (cb === null) {
+        if(a > b) {
+          arr[j] = b;
+          arr[j + 1] = a;
+        }
+      } else if (cb(arr[j], arr[j +1]) > 0) {
+        arr[j] = b;
+        arr[j + 1] = a;
+      }
+    }
+	}
+	return arr
 }
 
 root.arraysLib = {
@@ -212,6 +239,7 @@ root.arraysLib = {
 	find,
   reduceArray,
 	shuffle,
+	sort,
 }
 
 }(window));
