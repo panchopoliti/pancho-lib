@@ -21,8 +21,24 @@
     }
   }
 
+  function getElementSiblings(element) {
+    const arrResult = [];
+    let nextSibling = element.nextElementSibling;
+    let previousSibling = element.previousElementSibling;
+    while (nextSibling !== null) {
+      arrResult.push(nextSibling);
+      nextSibling = nextSibling.nextElementSibling;
+    }
+    while (previousSibling !== null) {
+      arrResult.push(previousSibling);
+      previousSibling = previousSibling.previousElementSibling;
+    }
+    return arrResult;
+  }
+
 	root.MyFunctions = {
 		debounce,
     getRandomInt,
+    getElementSiblings,
 	};
 })(this);
