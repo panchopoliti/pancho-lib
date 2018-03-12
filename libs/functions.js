@@ -36,9 +36,14 @@
     return arrResult;
   }
 
+  function getKeyOfValue(obj, value) {
+    return Object.keys(obj)[Object.values(obj).indexOf(value)];
+  }
+
 	root.MyFunctions = {
 		debounce,
     getRandomInt,
     getElementSiblings,
+    getKeyOfValue,
 	};
 })(this);
