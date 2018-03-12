@@ -14,14 +14,34 @@
     return true;
   }
 
+  describe("isDuplicate", function() {
+
+    it("returns if an array has a duplicate", function() {
+      assert(a.isDuplicate([2,3], 2) === false, 'it has a duplicate');
+    });
+
+    it("returns if an array has a duplicate", function() {
+      assert(a.isDuplicate([2,3,2], 2) === true, 'it has no duplicate');
+    });
+
+    it("returns if an array has a duplicate", function() {
+      assert(a.isDuplicate([2,3,2,2,2,2,2,2,2,2,2,2,2], 2) === true, 'it has no duplicate');
+    });
+
+    it("returns if an array has a duplicate", function() {
+      assert(a.isDuplicate([], 2) === false, 'it has a duplicate');
+    });
+  });
+
   describe("concat", function() {
+
     it("[2,3] concatenated with [3,4] should return [2,3,3,4]", function() {
       assert(equalArrays(a.concat([2,3],[3,4]), [2,3,3,4]), 'arrays are not equal');
     });
 
     it("[] concatenated with [] should return []", function() {
       assert(equalArrays(a.concat([],[]), []), 'arrays are not equal');
-    })
+    });
   });
 
   describe("intersection", function(){

@@ -1,4 +1,20 @@
 (function(root) {
+/**
+ * Is Duplicate?
+ * @param {Array} arr - the array to look in
+ * @param {*} elem -  The value we are checking if it's duplicate
+ * @return {boolean} If is Duplicate
+ */
+function isDuplicate(arr, elem) {
+  const checkArr = arr.slice();
+
+  if (indexOf(checkArr, elem) === -1) {
+    return false;
+  } else {
+    checkArr.splice(indexOf(checkArr, elem), 1);
+   return (indexOf(checkArr, elem) !== -1);
+  }
+}
 
 
 /**
@@ -240,6 +256,7 @@ root.arraysLib = {
   reduceArray,
 	shuffle,
 	sort,
+  isDuplicate,
 }
 
 }(window));
