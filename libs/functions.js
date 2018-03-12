@@ -37,6 +37,9 @@
   }
 
   function getKeyOfValue(obj, value) {
+	  if (!Object.values(obj).includes(value)) {
+	    return -1;
+    }
     return Object.keys(obj)[Object.values(obj).indexOf(value)];
   }
 
