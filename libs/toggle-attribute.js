@@ -49,7 +49,7 @@
       }
     });
     trigger.addEventListener('click', () => {
-      if (trigger.dataset.quitToggle === true) return;
+      if (trigger.dataset.quitToggle === 'true') return;
 
       target.classList.remove('hide');
       overlayDiv.classList.remove('hide');
