@@ -25,6 +25,8 @@
   }
 
   function clickOutside(trigger, targetSelector, target) {
+
+
     document.body.addEventListener('click', (event) => {
       const isChildOfDataTarget = event.target.closest(targetSelector);
 
@@ -47,6 +49,8 @@
       }
     });
     trigger.addEventListener('click', () => {
+      if (trigger.dataset.quitToggle === true) return;
+
       target.classList.remove('hide');
       overlayDiv.classList.remove('hide');
     });
@@ -74,7 +78,7 @@
   function genericToggle() {
     const allToggleElem = document.querySelectorAll('[data-toggle]');
     for (const elem of allToggleElem) {
-      const { target, toggle } = elem.dataset;
+      const { target, toggle} = elem.dataset;
 
       if (!target) {
         throw new Error('not data-target provided');
