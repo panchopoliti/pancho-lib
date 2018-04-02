@@ -1,6 +1,6 @@
 {
     "name": "pancho-lib",
-    "version": "1.0.26",
+    "version": "1.0.27",
     "description": "Utility libraries",
     "main": "index.js",
     "scripts": {

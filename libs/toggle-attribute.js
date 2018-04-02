@@ -43,8 +43,10 @@
     document.addEventListener('click', () => {
       const triggers = getAllModalTriggers();
       const isChildOfDataTarget = event.target.closest(targetSelector);
+      const isEventTargetATrigger = arraysLib.contains(triggers, event.target); //that means i want to open the modal, not to close it
+      const isDataTargetHidden = target.classList.contains('hide');
 
-      if (event.target !== target && !arraysLib.contains(triggers, event.target) && !isChildOfDataTarget) {
+      if (event.target !== target && !isEventTargetATrigger && !isChildOfDataTarget && !isDataTargetHidden) {
         closeModal(target);
       }
     });
