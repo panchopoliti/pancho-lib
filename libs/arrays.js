@@ -236,6 +236,42 @@ function sort(arr, cb = null) {
 	return arr
 }
 
+  /**
+   * Check if every element of an array is truthy.
+   * @param {Array} arr - the array to check over
+   * @param {Function} cb - the function which will set the condition to check
+   * @return {Boolean} If only one element don't check the condition, it will return false
+   */
+
+function every(arr, cb) {
+
+	for (let i = 0; i < arr.length; i++) {
+		if ( !cb(arr[i], i) ) {
+			return false;
+		}
+	}
+	return true;
+}
+
+  /**
+   * Check if some element of an array is truthy.
+   * @param {Array} arr - the array to check over
+   * @param {Function} cb - the function which will set the condition to check
+   * @return {Boolean} If one element check the condition, it will return true
+   */
+
+function some(arr, cb) {
+
+	for (let i = 0; i < arr.length; i++) {
+
+		if (cb(arr[i], i)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+
 root.arraysLib = {
 	concat,
 	deleteDuplicates,
@@ -257,6 +293,8 @@ root.arraysLib = {
 	shuffle,
 	sort,
   isDuplicate,
+	every,
+	some,
 }
 
 }(window));
