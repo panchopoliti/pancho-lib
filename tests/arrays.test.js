@@ -198,5 +198,65 @@
     });
   });
 
+  describe("every", function() {
+
+    it("should return false is one element of the array does not check the condition", function() {
+      const myArr = [1, 2, 3, 4, 5, 6];
+      assert(a.every(myArr, (e) => e > 0) === true, "every function is not working");
+    });
+
+    it("should return false is one element of the array does not check the condition", function() {
+      const myArr = [
+        {user: 'John', active: true},
+        {user: 'Peter', active: true},
+        {user: 'Thomas', active: false},
+        {user: 'Jack', active: true},
+        {user: 'Jeff', active: true}
+        ];
+      assert(a.every(myArr, ({active}) => active === true) === false, "every function is not working");
+    });
+
+    it("should return false is one element of the array does not check the condition", function() {
+      const myArr = [
+        {user: 'John', active: true, id: 1},
+        {user: 'Peter', active: true, id: 2},
+        {user: 'Thomas', active: false, id: 3},
+        {user: 'Jack', active: true, id: 4},
+        {user: 'Jeff', active: true, id: null}
+      ];
+      assert(a.every(myArr, ({id}) => isNaN(id) === true) === false, "every function is not working");
+    });
+  });
+
+  describe("some", function() {
+
+    it("should return true if one element of the array check the condition", function() {
+      const myArr = [1, 2, 3, 4, 5, 6];
+      assert(a.some(myArr, (e) => e > 6) === false, "some function is not working");
+    });
+
+    it("should return true if one element of the array check the condition", function() {
+      const myArr = [
+        {user: 'John', active: true},
+        {user: 'Peter', active: true},
+        {user: 'Thomas', active: false},
+        {user: 'Jack', active: true},
+        {user: 'Jeff', active: true}
+      ];
+      assert(a.some(myArr, ({active}) => active === true) === true, "some function is not working");
+    });
+
+    it("should return true if one element of the array check the condition", function() {
+      const myArr = [
+        {user: 'John', active: true, id: 1},
+        {user: 'Peter', active: true, id: 2},
+        {user: 'Thomas', active: false, id: 'lo'},
+        {user: 'Jack', active: true, id: 4},
+        {user: 'Jeff', active: true, id: 'pepe'}
+      ];
+      assert(a.some(myArr, ({id}) => isNaN(id) === true) === true, "some function is not working");
+    });
+  });
+
 
 }(window));
