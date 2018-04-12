@@ -40,7 +40,7 @@
   // It works if you put to overlay div the id "overlayDivToggle" and the target being the Div Alert
   function myModal(trigger, target, targetSelector) {
     const overlayDiv = document.getElementById('overlayDivToggle');
-    document.addEventListener('click', () => {
+    document.addEventListener('click', (event) => {
       const triggers = getAllModalTriggers();
       const isChildOfDataTarget = event.target.closest(targetSelector);
       const isEventTargetATrigger = arraysLib.contains(triggers, event.target); //that means i want to open the modal, not to close it
