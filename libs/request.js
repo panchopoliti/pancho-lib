@@ -1,4 +1,4 @@
-(function (root) {
+(function(root) {
 
   function post(fileLocation, JSONData) {
     return new Promise((resolve, reject) => {
