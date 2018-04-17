@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "docs": "jsdoc -r libs -d docs",
+        "build-babel": "babel libs -d out",
         "test": "echo \"Error: no test specified\" && exit 1",
         "nv": "./nv"
     },
