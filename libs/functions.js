@@ -21,6 +21,13 @@
     }
   }
 
+  function getObjectFromQueryString(searchLocation) {
+    return searchLocation.replace('?', '')
+      .split('&')
+      .map((e) => e.split('='))
+      .reduce((acum, [k, v]) => Object.assign({}, acum, { [k]: v }), {});
+  }
+
   function getElementSiblings(element) {
     const arrResult = [];
     let nextSibling = element.nextElementSibling;
@@ -48,5 +55,6 @@
     getRandomInt,
     getElementSiblings,
     getKeyOfValue,
+    getObjectFromQueryString,
 	};
 })(this);
